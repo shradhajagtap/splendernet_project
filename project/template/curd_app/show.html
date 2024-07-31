@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+            <div >
+                <table>
+                    <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> Movie Title </th>
+                            <th> Director </th>
+                            <th> Review Content </th>
+                            <th> Rating </th>
+                            <th> Genres </th>
+                            <th colspan="2" class=" text-center "> Action </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for movie in obj %}
+                            <tr>
+                                <td>{{movie.id}}</td>
+                                <td>{{movie.movieTitle}}</td>
+                                <td>{{movie.director}}</td>
+                                <td>{{movie.reviewContent}}</td>
+                                <td>{{movie.rating}}</td>
+                                <td>{{movie.genres}}</td>
+                                <td>
+                                    <a href="{% url 'update_url' movie.id%}"> &nbsp Update</a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'delete_url' movie.id%}"> &nbsp Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+</body>
+</html>
